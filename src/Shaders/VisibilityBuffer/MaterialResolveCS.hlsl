@@ -195,7 +195,7 @@ void main(uint3 DTid : SV_DispatchThreadID, uint3 GTid : SV_GroupThreadID)
     {
         return;
     }
-    if (id < 256)
+    if (id < MATERIAL_UPPER_LIMIT)
     {
         materialOffsetBuffer[id] = 0;
         materialCountBuffer[id] = 0;
