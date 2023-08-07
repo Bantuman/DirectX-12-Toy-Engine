@@ -5,7 +5,7 @@ RWStructuredBuffer<uint2> offsetBuffer : register(u1);
 RWStructuredBuffer<uint> materialCountBuffer : register(u2);
 RWStructuredBuffer<uint> materialOffsetBuffer : register(u3);
 RWStructuredBuffer<float2> pixelPositionBuffer : register(u4);
-RWTexture2D<float4> renderTarget: register(u5);
+RWTexture2D<float> renderTarget: register(u5);
 
 struct VertexData
 {
@@ -292,7 +292,12 @@ void main(uint3 DTid : SV_DispatchThreadID, uint3 GTid : SV_GroupThreadID)
     //float3 avg = (positions.tri0 + positions.tri1 + positions.tri2) / 3;
    // float3 avg = (vmp0 + vmp1 + vmp2) / 3;
    // renderTarget[coords] = float4(texCoordDX.xy, 1, 1);
-    renderTarget[coords] = albedoTexture[materialId].SampleGrad(linearSampler, texCoord, texCoordDX, texCoordDY);
+    float4 finalColor = albedoTexture[materialId].SampleGrad(linearSampler, texCoord, texCoordDX, texCoordDY);
+    
+    renderTarget[coords] = finalColor.r;
+    renderTarget[coords + uint2(width, 0)] = finalColor.g;
+    renderTarget[coords + uint2(2 * width, 0)] = finalColor.b;
+    renderTarget[coords + uint2(3 * width, 0)] = finalColor.a;
     
   //  uint2 coords = uint2(id % width, id / width);
   //  uint2 packedvis = visibilityBuffer[coords].rg;

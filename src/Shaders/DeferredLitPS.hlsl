@@ -2,7 +2,7 @@
 
 RWTexture2D<uint> visibilityBuffer : register(u0);
 RWStructuredBuffer<uint2> offsetBuffer : register(u1);
-Texture2D gBuffer : register(t0);
+Texture2D<float> gBuffer : register(t0);
 
 float4 GetProceduralColor(int index)
 {
@@ -32,7 +32,10 @@ float4 main(FullscreenPixelInput input) : SV_TARGET
     float s = (tri.r + tri.g + tri.b) * (1 / 3.f);
     float4 clr = (s * 0.5f + 0.5f) * GetProceduralColor(drawCallId);
 
-    clr = gBuffer[uint2(w * input.TexCoord.x, h * input.TexCoord.y)].rgba;
+    float r = gBuffer[uint2(w * input.TexCoord.x, h * input.TexCoord.y)];
+    float g = gBuffer[uint2(w * input.TexCoord.x + w, h * input.TexCoord.y)];
+    float b = gBuffer[uint2(w * input.TexCoord.x + (2 * w), h * input.TexCoord.y)];
+    float a = gBuffer[uint2(w * input.TexCoord.x + (3 * w), h * input.TexCoord.y)];
     
-    return clr;
+    return float4(r, g, b, a);
 }

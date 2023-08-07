@@ -484,11 +484,11 @@ bool VisibilityBufferRenderer::Initialize()
 	}
 
 	{
-		DXGI_FORMAT backBufferFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
+		DXGI_FORMAT backBufferFormat = DXGI_FORMAT_R32_FLOAT;
 		DXGI_FORMAT depthBufferFormat = DXGI_FORMAT_D32_FLOAT;
 
 		// Create an off-screen render target with a single color buffer and a depth buffer.
-		auto colorDesc = CD3DX12_RESOURCE_DESC::Tex2D(backBufferFormat, WND_PROP.Width, WND_PROP.Height, 1, 1, 1,
+		auto colorDesc = CD3DX12_RESOURCE_DESC::Tex2D(backBufferFormat, WND_PROP.Width * 4, WND_PROP.Height, 1, 1, 1,
 			0, D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET | D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS);
 		D3D12_CLEAR_VALUE colorClearValue;
 		colorClearValue.Format = colorDesc.Format;
@@ -499,20 +499,20 @@ bool VisibilityBufferRenderer::Initialize()
 
 
 		// Create a depth buffer.
-		auto depthDesc = CD3DX12_RESOURCE_DESC::Tex2D(depthBufferFormat, WND_PROP.Width, WND_PROP.Height, 1, 1, 1,
-			0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
-		D3D12_CLEAR_VALUE depthClearValue;
-		depthClearValue.Format = depthDesc.Format;
-		depthClearValue.DepthStencil = { 1.0f, 0 };
+		//auto depthDesc = CD3DX12_RESOURCE_DESC::Tex2D(depthBufferFormat, WND_PROP.Width * 4, WND_PROP.Height, 1, 1, 1,
+		//	0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
+		//D3D12_CLEAR_VALUE depthClearValue;
+		//depthClearValue.Format = depthDesc.Format;
+		//depthClearValue.DepthStencil = { 1.0f, 0 };
 
-		auto depthTexture = m_Device->CreateTexture(depthDesc, &depthClearValue);
-		depthTexture->SetName(L"Depth Render Target");
+		//auto depthTexture = m_Device->CreateTexture(depthDesc, &depthClearValue);
+		//depthTexture->SetName(L"Depth Render Target");
 
 		// TODO: Actually bind default depth texture and dont create new one
 
 		// Attach the textures to the render target.
 		m_GBuffer.AttachTexture(AttachmentPoint::Color0, colorTexture);
-		m_GBuffer.AttachTexture(AttachmentPoint::DepthStencil, depthTexture);
+		//m_GBuffer.AttachTexture(AttachmentPoint::DepthStencil, depthTexture);
 
 		colorTexture->CreateViews();
 	}
