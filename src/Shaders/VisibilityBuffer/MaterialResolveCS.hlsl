@@ -19,7 +19,7 @@ struct VertexData
 RWStructuredBuffer<VertexData> visibleVertexBuffer : register(u7);
 RWStructuredBuffer<uint> visibleIndexBuffer : register(u8);
 
-Texture2D<float4> albedoTexture[96] : register(t1);
+Texture2D<float4> albedoTexture[MATERIAL_UPPER_LIMIT] : register(t1);
 
 SamplerState linearSampler : register(s0);
 
@@ -265,6 +265,7 @@ void main(uint3 DTid : SV_DispatchThreadID, uint3 GTid : SV_GroupThreadID)
     
     GradientInterpolationResults results = Interpolate2DWithDeriv(derivatives, texCoords);
 			
+    // TODO: Break this out to a cbuffer again
     float nearPlane = 1;
     float farPlane = 2000;
     

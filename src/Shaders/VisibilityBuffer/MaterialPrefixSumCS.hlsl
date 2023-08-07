@@ -11,11 +11,12 @@ RWStructuredBuffer<uint> materialCountBuffer : register(u0);
 RWStructuredBuffer<uint> materialOffsetBuffer : register(u1);
 RWStructuredBuffer<IndirectArgs> indirectArguementBuffer : register(u2);
 
+
 [numthreads(1, 1, 1)]
 void main( uint3 DTid : SV_DispatchThreadID )
 {
     uint offset = 0;
-    for (uint i = 0; i < 96; ++i)
+    for (uint i = 0; i < MATERIAL_UPPER_LIMIT; ++i)
     {
         uint fragcount = materialCountBuffer[i];
         uint originalValue;

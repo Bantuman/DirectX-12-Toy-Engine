@@ -1,5 +1,6 @@
 #pragma once
 
+#define MATERIAL_UPPER_LIMIT 32
 #define NUM_TRIANGLE_BITS 23
 #define TRIANGLE_MASK 0x7fffff
 //0x7fffff 

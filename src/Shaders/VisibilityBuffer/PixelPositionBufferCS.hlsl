@@ -8,7 +8,6 @@ RWStructuredBuffer<float2> pixelPositionBuffer : register(u4);
 
 #define GROUP_SIZE_X 4
 #define GROUP_SIZE_Y 8
-#define MATERIAL_UPPER_LIMIT 32
 
 groupshared static uint groupTotalSize = GROUP_SIZE_X * GROUP_SIZE_Y;
 
