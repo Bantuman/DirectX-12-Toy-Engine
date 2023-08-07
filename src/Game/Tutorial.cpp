@@ -69,7 +69,7 @@ Tutorial::Tutorial(const std::wstring& name, int width, int height, bool vSync)
 	camera.set_FocalPoint(cameraTarget);
 
 	float aspectRatio = m_Width / (float)m_Height;
-	camera.set_Projection(camera.get_FoV(), aspectRatio, 1.f, 2000.0f);
+	camera.set_Projection(camera.get_FoV(), aspectRatio, 1.f, 5000.0f);
 
 	WND_PROP.Height = height;
 	WND_PROP.Width = width;
@@ -482,8 +482,8 @@ void Tutorial::OnResize(ResizeEventArgs& e)
 
 		m_SwapChain->Resize(m_Width, m_Height);
 
-		float aspectRatio = m_Width / (float)m_Height;
-		m_Scene.GetCameraRef().set_Projection(m_Scene.GetCameraRef().get_FoV(), aspectRatio, 0.1f, 5000.0f);
+		float aspectRatio = (float)m_Width / (float)m_Height;
+		m_Scene.GetCameraRef().set_Projection(m_Scene.GetCameraRef().get_FoV(), aspectRatio, 1, 5000.0f);
 
 		m_Viewport = CD3DX12_VIEWPORT(0.0f, 0.0f, static_cast<float>(m_Width), static_cast<float>(m_Height));
 

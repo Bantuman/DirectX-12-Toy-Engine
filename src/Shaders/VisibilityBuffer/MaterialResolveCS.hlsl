@@ -253,7 +253,7 @@ void main(uint3 DTid : SV_DispatchThreadID, uint3 GTid : SV_GroupThreadID)
     BarycentricDeriv derivatives = CalcFullBary(vmp0, vmp1, vmp2, screenpos, float2(width, height));
     float w = 1.0f / dot(one_over_w, derivatives.m_lambda);
     
-    float z = w * CameraCB.Projection[2][2] + CameraCB.Projection[3][2];
+    float z = w * CameraCB.Projection[2][2] + CameraCB.Projection[2][3];
     
    // float3 worldPosition = mul(inverseViewProjection, float4(screenpos * w, z, w)).xyz;
     
@@ -267,7 +267,7 @@ void main(uint3 DTid : SV_DispatchThreadID, uint3 GTid : SV_GroupThreadID)
 			
     // TODO: Break this out to a cbuffer again
     float nearPlane = 1;
-    float farPlane = 2000;
+    float farPlane = 5000;
     
     float linearZ = depthLinearization(z / w, nearPlane, farPlane);
     float mip = pow(pow(linearZ, 0.9f) * 5.0f, 1.5f);
