@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\DeferredLitPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\FullscreenVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\GenerateMipsCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\GenericMeshVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\ImguiPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\ImguiVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\PanoToCubemapCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\PixelShaderPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\MaterialCountCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\MaterialCountPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\MaterialPrefixSumCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\MaterialResolveCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\PixelPositionBufferCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\PixelPositionBufferPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Projects\D3D12-Engine\bin\Shaders\RasterizeTriangleDataPS.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
