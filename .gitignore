@@ -75,6 +75,7 @@ StyleCopReport.xml
 *.vcxproj
 *.vcxproj.filters
 *.idb
+*.sln
 *_i.c
 *.lib
 *_p.c
