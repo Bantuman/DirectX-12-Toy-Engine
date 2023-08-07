@@ -4,7 +4,7 @@ RWTexture2D<uint> visibilityBuffer : register(u0);
 RWStructuredBuffer<uint2> offsetBuffer : register(u1);
 RWStructuredBuffer<uint> materialCountBuffer : register(u2);
 
-#define GROUP_SIZE 32
+#define GROUP_SIZE 16
 
 groupshared uint intermediateCountBuffer[GROUP_SIZE * GROUP_SIZE];
 groupshared uint intermediateCounterBuffer[MATERIAL_UPPER_LIMIT];

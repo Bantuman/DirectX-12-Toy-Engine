@@ -686,7 +686,7 @@ void VisibilityBufferRenderer::RenderScene(RenderTarget& renderTarget, const Sce
 		computeList->SetUnorderedAccessView(MaterialCountParameters::OffsetBuffer, 0, m_OffsetBufferUAV, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
 		computeList->SetUnorderedAccessView(MaterialCountParameters::MaterialCountBuffer, 0, m_MaterialCountUAV, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
 
-		computeList->Dispatch((u32)std::ceil(m_VisibilityBuffer.GetWidth() / 32) + 1, (u32)std::ceil(m_VisibilityBuffer.GetHeight() / 32) + 1);
+		computeList->Dispatch((u32)std::ceil(m_VisibilityBuffer.GetWidth() / 16) + 1, (u32)std::ceil(m_VisibilityBuffer.GetHeight() / 16) + 1);
 
 		computeQueue.WaitForFenceValue(computeQueue.ExecuteCommandList(computeList));
 	}
